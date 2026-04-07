@@ -1,6 +1,7 @@
-CREATE TABLE IF NOT EXISTS summary AS
+DROP TABLE IF EXISTS summary;
+CREATE TABLE summary AS
 SELECT year,
-	count(id) AS count,
+	count(id) AS book_count,
 	ROUND (
 		AVG(
 			CASE
@@ -8,6 +9,6 @@ SELECT year,
 					THEN CAST(trim(price,'€') AS REAL) * 1.2
 				ELSE CAST(trim(price,'$') AS REAL)
 			END
-		), 2) AS avg_price_usd
+		), 2) AS average_price
 FROM books
 GROUP BY year;
