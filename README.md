@@ -1,2 +1,18 @@
-# itransition-de-task-1
 Task 1 repo for itransition "survival course"
+
+## Task description:
+
+> **TASK #1_DATA (for DATA group, submit solution via e-mail)**
+> 
+> Write a script to ingest the data from the file task1_d.json into a relational database (note that it's not a valid JSON, you need to process it).
+> 
+> Apply transformations to produce a summary table with the following fields:
+> - publication year,
+> - book_count published that year,
+> - average_price of books published that year in USD rounded to cents using convertion rate €1 = $1.2.
+> 
+> You can use any language for uploading data, but transformation is supposed to be inside the database.
+> 
+> Record the video demonstrating all the code you've wrote (including SQL query that builds the summary table) as well as data in the RDBMS with the row count (both tables). Don't forget to display the content of the summary table in the video.
+
+## Comments on structure and code
