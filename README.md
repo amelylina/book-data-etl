@@ -16,3 +16,6 @@ Task 1 repo for itransition "survival course"
 > Record the video demonstrating all the code you've wrote (including SQL query that builds the summary table) as well as data in the RDBMS with the row count (both tables). Don't forget to display the content of the summary table in the video.
 
 ## Comments on structure and code
+- chose to use python regex for parsing to avoid security issues with using ruby eval()
+- chose to use sqlite as it is a light relational db builtin inside macos with python builtin module
+- stored IDs as TEXT due to exceeding 64-bit integer limits
