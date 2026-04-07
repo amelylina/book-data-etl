@@ -1,5 +1,3 @@
-# line = '[{:id=>10292064894005717421, :title=>"Look Homeward, Angel", :author=>"Prof. Teressa Kautzer", :genre=>"Humor", :publisher=>"Brill Publishers", :year=>2010, :price=>"$87.25"},{:id=>12880574241579659568, :title=>"A Catskill Eagle", :author=>"Dayle Orn", :genre=>"Comic/Graphic Novel", :publisher=>"Apress", :year=>2011, :price=>"€5.99"}]'
-
 import re
 from typing import Dict, List
 from pathlib import Path
@@ -29,6 +27,10 @@ if __name__ == "__main__" :
     parsed_list = convert_ruby_hash_to_dict(ruby_hash)
     log.info(f"Parsed {len(parsed_list)} books")
 
+    # sqlite has issues with very big numbers
+    for book in parsed_list:
+        book['id'] = str(book['id'])
+
     # create the db
     log.info(f"Connecting to db")
     con = sql.connect(DB_PATH)
@@ -37,13 +39,13 @@ if __name__ == "__main__" :
         cur.execute(
             """
             CREATE TABLE IF NOT EXISTS books (
-            id PRIMARY KEY NOT NULL,
+            id TEXT PRIMARY KEY,
             title TEXT NOT NULL,
             author TEXT NOT NULL,
             genre TEXT NOT NULL,
             publisher TEXT NOT NULL,
-            year INTEGER,
-            price TEXT
+            year INTEGER NOT NULL,
+            price TEXT NOT NULL
             )
             """
         )
