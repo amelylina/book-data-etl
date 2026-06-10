@@ -8,8 +8,8 @@ import logging
 log = logging.getLogger(__name__)
 
 PROJECT_ROOT = Path(__file__).parent.parent
-INPUT_PATH = PROJECT_ROOT / 'raw_data' / 'task1_d.json'
-DB_PATH = PROJECT_ROOT/ 'task1.db'
+INPUT_PATH = PROJECT_ROOT / 'raw_data' / 'books_raw.json'
+DB_PATH = PROJECT_ROOT/ 'book.db'
 
 # helper-parser function
 def convert_ruby_hash_to_dict(ruby_hash)-> List[Dict]:

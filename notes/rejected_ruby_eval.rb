@@ -8,7 +8,7 @@
 require 'json'
 
 project_root = File.expand_path('..', __dir__)
-input_path   = File.join(project_root, 'raw_data', 'task1_d.json')
+input_path   = File.join(project_root, 'raw_data', 'books_raw.json')
 output_path  = File.join(project_root, 'output_data', 'parsed_data.json')
 
 
